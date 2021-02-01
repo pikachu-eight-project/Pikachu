@@ -1,4 +1,33 @@
 .home{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: var(--header-height) auto;
     color: red;
     font-size: 20px;
+}
+
+.header{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: var(--header-height);
+    box-shadow: 3px -5px 17px #363225;
+}
+
+
+.logo{
+
+}
+
+.nav{
+
+    align-self: center;
+    .ul{
+        display: grid;
+        text-align: center;
+    }
+}
+
+.login{
+
 }

@@ -25,7 +25,8 @@ Pikachu
     ├── package.json                                            webpack 配置项
     ├── tsconfig.json                                           typescript 配置项
     ├── next-env.d.ts                                           typescript 声明文件
-    ├── next.config.js                                          nextjs的配置文件
+    ├── next.config.js                                          nextjs配置项
+    ├── public                                                  静态资源文件夹，用于存放图片等静态资源，使用路径以 / 开头
     ...
 
 ```
