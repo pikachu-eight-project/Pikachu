@@ -1,33 +1,21 @@
 .home{
-    display: grid;
-    width: 100%;
-    height: 100%;
-    grid-template-rows: var(--header-height) auto;
-    color: red;
-    font-size: 20px;
-}
-
-.header{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: var(--header-height);
-    box-shadow: 3px -5px 17px #363225;
-}
+    .container{
 
 
-.logo{
+    }
 
-}
-
-.nav{
-
-    align-self: center;
-    .ul{
-        display: grid;
-        text-align: center;
+    .carousel{
+        height: 380px;
+        width: 100%;
+        overflow: hidden;
+        line-height:380px;
+        .carousel-item{
+            width: 100%;
+            color: #fff;
+            text-align: center;
+            background: #364d79;
+        }
     }
 }
 
-.login{
 
-}

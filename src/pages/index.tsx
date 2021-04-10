@@ -1,66 +1,48 @@
 import styles from './index.module.scss'
-import Image from 'next/image';
-import {useMemo} from 'react'
+import {Carousel} from 'antd';
+import {useMemo} from "react";
 
-export interface NavConfig{
-    /**
-     * 锚链接
-     */
-    href: string,
-    /**
-     * 文字
-     */
-    text: string,
+interface CarouselConfig {
+    src: string
+    alt: string
 }
 
-const navConfig:NavConfig[] = [
+/**
+ * 轮播图配置
+ */
+const carouselConfig: CarouselConfig[] = [
     {
-        href: "#",
-        text: "网站首页"
+        src: "/img/网页作品2_02.png",
+        alt: "/img/网页作品2_02.png"
     },
     {
-        href: "#resume",
-        text: "网站简历"
+        src: "/img/网页作品2_25.png",
+        alt: "/img/网页作品2_25.png"
     },
     {
-        href: "#works",
-        text: "作品欣赏"
+        src: "/img/网页作品2_27.png",
+        alt: "/img/网页作品2_27.png"
     },
     {
-        href: "#about",
-        text: "关于我们"
-    },
-    {
-        href: "#me",
-        text: "联系我们"
+        src: "/img/网页作品2_09.png",
+        alt: "/img/网页作品2_09.png"
     }
 ]
 
-export default function Index() {
-    const lis = useMemo(()=>{
-        const navList = navConfig.map((item) => <li key={item.text}>
-            <a href={item.href}>{item.text}</a>
-        </li>)
-        return navList
-    },[navConfig])
+const Home = () => {
+    const carouselList = useMemo(() => {
+        return carouselConfig.map((item, key) =>
+            <div className={styles["carousel-item"]} key={key}>
+                <img src={item.src} alt={item.alt} width="100%" height="100%"/>
+            </div>
+        )
+    }, [carouselConfig])
     return (
         <div className={styles.home}>
-            <header className={styles.header}>
-                <div className={styles.logo}>
-                    <img src="/img/login_edu.png" alt="logo"/>
-                </div>
-                <nav className={styles.nav}>
-                    <ul className={styles.ul} style={{
-                        gridTemplateColumns: `repeat(${navConfig.length}, 1fr)`
-                    }}>
-                        {lis}
-                    </ul>
-                </nav>
-                <div className={styles.login}>login</div>
-            </header>
-            <section>
-                中间
-            </section>
+            <Carousel autoplay className={styles.carousel}>
+                {carouselList}
+            </Carousel>
         </div>
     )
 }
+export default Home

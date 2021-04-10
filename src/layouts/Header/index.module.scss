@@ -1,0 +1,12 @@
+.header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: var(--header-height);
+  box-shadow: 0px 3px 4px 0px #d6d6d6;
+  z-index: 2;
+
+  .nav{
+    justify-self: center;
+    align-self: center;
+  }
+}

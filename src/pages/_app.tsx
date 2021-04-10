@@ -1,5 +1,14 @@
 import './styles.scss'
-
-export default function App({Component, pageProps}) {
-    return <Component {...pageProps}/>
+import LayoutHeader from "@/layouts/Header";
+import WithLoading from "@/components/WithLoading";
+export default function App({Component, pageProps, ...props}) {
+    console.log()
+    return (
+        <>
+            <WithLoading>
+                <LayoutHeader/>
+                <Component {...pageProps}/>
+            </WithLoading>
+        </>
+    )
 }
