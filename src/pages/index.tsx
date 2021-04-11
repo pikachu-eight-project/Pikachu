@@ -39,7 +39,17 @@ const Home = () => {
     }, [carouselConfig])
     return (
         <div className={styles.home}>
-            <Carousel autoplay className={styles.carousel}>
+            <Carousel
+                autoplay
+                      className={styles.carousel}
+                      draggable
+                      lazyLoad="ondemand"
+                      pauseOnDotsHover
+                      accessibility
+                      adaptiveHeight
+                      arrows
+                      focusOnSelect
+            >
                 {carouselList}
             </Carousel>
         </div>

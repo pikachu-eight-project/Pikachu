@@ -1,7 +1,7 @@
 import styles from './index.module.scss'
 import {useMemo, useState} from "react";
 import {useRouter} from 'next/router'
-import {Menu} from 'antd'
+import {Menu, Button} from 'antd'
 
 export interface NavConfig {
     /**
@@ -23,12 +23,12 @@ const navConfig: NavConfig[] = [
         text: "网站首页"
     },
     {
-        href: "/resume",
-        text: "网站简历"
-    },
-    {
         href: "/works",
         text: "作品欣赏"
+    },
+    {
+        href: "/resume",
+        text: "网站简历"
     },
     {
         href: "/about",
@@ -47,16 +47,16 @@ const LayoutHeader = () => {
         const navList = navConfig.map((item) =>
             <Menu.Item key={item.text}
                        onClick={() => {
-                           pathname !== item.href && push(item.href)
+                          pathname !== item.href && push(item.href)
                        }}>{item.text}
             </Menu.Item>
         )
         return navList
-    }, [navConfig])
+    }, [navConfig, pathname])
     return (
         <section className={styles.header}>
-            <div>
-                logo
+            <div className={styles.logo}>
+                <img src="/img/logo2.png" alt="logo" className={styles.images}/>
             </div>
             <nav className={styles.nav}>
                 <Menu onClick={(e) => setNav(e.key)}
@@ -66,8 +66,10 @@ const LayoutHeader = () => {
                     {lis}
                 </Menu>
             </nav>
-            <div>
-                登录
+            <div className={styles.login}>
+                <Button type="primary" shape="round" onClick={()=>{
+                    pathname !== "/login" && push("/login")
+                }}>登录</Button>
             </div>
         </section>
     )
